@@ -13,13 +13,16 @@ body {
     overflow: hidden;
 }
 
-/* CURTAIN */
+/* =========================
+   CURTAIN
+========================= */
 
 #curtain {
     position: fixed;
     inset: 0;
     z-index: 100;
     display: flex;
+    pointer-events: none;
 }
 
 .curtain-left,
@@ -48,7 +51,7 @@ body {
     border-left: 1px solid #6d2635;
 }
 
-/* OPEN CURTAIN */
+/* CURTAIN OPENS */
 
 #curtain.open .curtain-left {
     transform: translateX(-100%);
@@ -59,11 +62,14 @@ body {
 }
 
 
-/* QUESTION ON TOP OF CURTAIN */
+/* =========================
+   QUESTION
+========================= */
 
 #questionScreen {
     position: fixed;
     inset: 0;
+
     z-index: 200;
 
     display: flex;
@@ -72,7 +78,9 @@ body {
 
     text-align: center;
 
-    transition: opacity 0.5s ease;
+    pointer-events: auto;
+
+    transition: opacity 0.6s ease;
 }
 
 #questionScreen.hidden {
@@ -98,7 +106,9 @@ body {
 
 .question-card h1 {
     font-family: 'Cormorant Garamond', serif;
+
     font-size: clamp(45px, 9vw, 75px);
+
     font-weight: 500;
 
     margin-bottom: 35px;
@@ -106,9 +116,16 @@ body {
 
 .love-buttons {
     display: flex;
+
     justify-content: center;
+
     gap: 18px;
 }
+
+
+/* =========================
+   BUTTONS
+========================= */
 
 button {
     padding: 14px 28px;
@@ -132,6 +149,7 @@ button {
 
 button:hover {
     background: #6e2638;
+
     border-color: #b84b66;
 
     box-shadow:
@@ -139,7 +157,9 @@ button:hover {
 }
 
 
-/* WEBSITE */
+/* =========================
+   WEBSITE
+========================= */
 
 .website {
     width: 100vw;
@@ -155,17 +175,21 @@ button:hover {
 }
 
 
-/* PAGES */
+/* =========================
+   PAGES
+========================= */
 
 .page {
     position: absolute;
     inset: 0;
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
     opacity: 0;
+
     visibility: hidden;
 
     transform: scale(0.96);
@@ -177,12 +201,16 @@ button:hover {
 
 .page.active {
     opacity: 1;
+
     visibility: visible;
+
     transform: scale(1);
 }
 
 
-/* CARD */
+/* =========================
+   CARDS
+========================= */
 
 .card {
     width: min(90%, 650px);
@@ -204,6 +232,7 @@ button:hover {
 
 .small-text {
     font-size: 11px;
+
     letter-spacing: 5px;
 
     color: #b97987;
@@ -214,11 +243,13 @@ button:hover {
 h1,
 h2 {
     font-family: 'Cormorant Garamond', serif;
+
     font-weight: 500;
 }
 
 h1 {
     font-size: clamp(50px, 10vw, 90px);
+
     letter-spacing: 3px;
 }
 
@@ -227,4 +258,106 @@ h1 span,
     color: #a83250;
 }
 
-h
+h2 {
+    font-size: clamp(35px, 7vw, 60px);
+
+    margin-bottom: 30px;
+}
+
+.message {
+    max-width: 520px;
+
+    margin: 0 auto 35px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 23px;
+
+    line-height: 1.7;
+
+    color: #dfcdd0;
+}
+
+
+/* =========================
+   PAGE 2 BUTTONS
+========================= */
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    min-height: 55px;
+}
+
+#noButton {
+    position: relative;
+}
+
+
+/* =========================
+   FINAL HEART
+========================= */
+
+.heart {
+    font-size: 45px;
+
+    margin: 20px 0;
+
+    animation: heartbeat 1.8s infinite;
+}
+
+.date {
+    color: #9b717a;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .question-card {
+        min-width: 85%;
+
+        padding: 40px 20px;
+    }
+
+    .love-buttons {
+        flex-direction: column;
+    }
+
+    .card {
+        padding: 40px 25px;
+    }
+
+    .message {
+        font-size: 21px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+}
