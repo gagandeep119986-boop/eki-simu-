@@ -1,18 +1,76 @@
 let currentPage = 1;
 
-window.addEventListener("load", () => {
 
+/* =========================
+   OPEN CURTAIN
+========================= */
+
+function openCurtain() {
+
+    // Hide the question
+    const question =
+        document.getElementById("questionScreen");
+
+    question.classList.add("hidden");
+
+
+    // Wait a moment, then open curtain
     setTimeout(() => {
-        document.getElementById("curtain").classList.add("open");
-    }, 700);
 
-});
+        const curtain =
+            document.getElementById("curtain");
 
+        curtain.classList.add("open");
+
+    }, 500);
+
+}
+
+
+/* =========================
+   SIMU BUTTON RUNS AWAY
+========================= */
+
+function runAway() {
+
+    const button =
+        document.getElementById("simuButton");
+
+    if (!button) return;
+
+
+    // Random position on screen
+    const maxX =
+        window.innerWidth - button.offsetWidth - 40;
+
+    const maxY =
+        window.innerHeight - button.offsetHeight - 40;
+
+    const x =
+        Math.max(20, Math.random() * maxX);
+
+    const y =
+        Math.max(20, Math.random() * maxY);
+
+
+    button.style.position = "fixed";
+
+    button.style.left = x + "px";
+
+    button.style.top = y + "px";
+}
+
+
+/* =========================
+   NEXT PAGE
+========================= */
 
 function nextPage() {
 
     const current =
         document.getElementById(`page${currentPage}`);
+
+    if (!current) return;
 
     current.classList.remove("active");
 
@@ -24,51 +82,10 @@ function nextPage() {
     if (next) {
 
         setTimeout(() => {
+
             next.classList.add("active");
+
         }, 400);
-
-    }
-
-}
-
-
-/* NO NEXT BUTTON */
-
-let escapeCount = 0;
-
-function runAway() {
-
-    const button =
-        document.getElementById("noButton");
-
-    escapeCount++;
-
-    if (escapeCount === 1) {
-
-        button.style.transform =
-            "translate(100px, -50px)";
-
-    }
-
-    else if (escapeCount === 2) {
-
-        button.style.transform =
-            "translate(-130px, 80px)";
-
-    }
-
-    else if (escapeCount === 3) {
-
-        button.style.transform =
-            "translate(180px, 100px)";
-
-    }
-
-    else {
-
-        button.style.opacity = "0";
-
-        button.style.pointerEvents = "none";
 
     }
 
