@@ -1,92 +1,82 @@
 let currentPage = 1;
 
 
-/* =========================
-   OPEN CURTAIN
-========================= */
+/* OPEN CURTAIN */
 
 function openCurtain() {
 
-    // Hide the question
-    const question =
-        document.getElementById("questionScreen");
+    const question = document.getElementById("questionScreen");
 
     question.classList.add("hidden");
 
-
-    // Wait a moment, then open curtain
     setTimeout(() => {
 
-        const curtain =
-            document.getElementById("curtain");
+        const curtain = document.getElementById("curtain");
 
         curtain.classList.add("open");
 
     }, 500);
-
 }
 
 
-/* =========================
-   SIMU BUTTON RUNS AWAY
-========================= */
+/* SIMU RUNS AWAY */
 
 function runAway() {
 
-    const button =
-        document.getElementById("simuButton");
+    const button = document.getElementById("simuButton");
 
-    if (!button) return;
+    if (button) {
 
+        const maxX = window.innerWidth - button.offsetWidth - 30;
+        const maxY = window.innerHeight - button.offsetHeight - 30;
 
-    // Random position on screen
-    const maxX =
-        window.innerWidth - button.offsetWidth - 40;
+        const x = Math.max(20, Math.random() * maxX);
+        const y = Math.max(20, Math.random() * maxY);
 
-    const maxY =
-        window.innerHeight - button.offsetHeight - 40;
-
-    const x =
-        Math.max(20, Math.random() * maxX);
-
-    const y =
-        Math.max(20, Math.random() * maxY);
+        button.style.position = "fixed";
+        button.style.left = x + "px";
+        button.style.top = y + "px";
+    }
 
 
-    button.style.position = "fixed";
+    /* Also handles the NO NEXT button */
 
-    button.style.left = x + "px";
+    const noButton = document.getElementById("noButton");
 
-    button.style.top = y + "px";
+    if (noButton) {
+
+        const maxX = window.innerWidth - noButton.offsetWidth - 30;
+        const maxY = window.innerHeight - noButton.offsetHeight - 30;
+
+        const x = Math.max(20, Math.random() * maxX);
+        const y = Math.max(20, Math.random() * maxY);
+
+        noButton.style.position = "fixed";
+        noButton.style.left = x + "px";
+        noButton.style.top = y + "px";
+    }
 }
 
 
-/* =========================
-   NEXT PAGE
-========================= */
+/* NEXT PAGE */
 
 function nextPage() {
 
-    const current =
-        document.getElementById(`page${currentPage}`);
+    const current = document.getElementById("page" + currentPage);
 
-    if (!current) return;
-
-    current.classList.remove("active");
+    if (current) {
+        current.classList.remove("active");
+    }
 
     currentPage++;
 
-    const next =
-        document.getElementById(`page${currentPage}`);
+    const next = document.getElementById("page" + currentPage);
 
     if (next) {
 
         setTimeout(() => {
-
             next.classList.add("active");
-
-        }, 400);
+        }, 300);
 
     }
-
 }
