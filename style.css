@@ -13,14 +13,13 @@ body {
     overflow: hidden;
 }
 
-/* CURTAINS */
+/* CURTAIN */
 
 #curtain {
     position: fixed;
     inset: 0;
     z-index: 100;
     display: flex;
-    pointer-events: none;
 }
 
 .curtain-left,
@@ -38,8 +37,7 @@ body {
             #080405
         );
 
-    transition:
-        transform 2.2s cubic-bezier(.77,0,.18,1);
+    transition: transform 2.2s cubic-bezier(.77,0,.18,1);
 }
 
 .curtain-left {
@@ -50,6 +48,8 @@ body {
     border-left: 1px solid #6d2635;
 }
 
+/* OPEN CURTAIN */
+
 #curtain.open .curtain-left {
     transform: translateX(-100%);
 }
@@ -59,7 +59,87 @@ body {
 }
 
 
-/* BACKGROUND */
+/* QUESTION ON TOP OF CURTAIN */
+
+#questionScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    transition: opacity 0.5s ease;
+}
+
+#questionScreen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.question-card {
+    padding: 45px 35px;
+
+    min-width: 320px;
+
+    background: rgba(10, 5, 7, 0.65);
+
+    border: 1px solid rgba(177, 75, 94, 0.45);
+
+    box-shadow:
+        0 0 60px rgba(120, 25, 50, 0.35),
+        inset 0 0 40px rgba(100, 20, 40, 0.08);
+
+    backdrop-filter: blur(8px);
+}
+
+.question-card h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(45px, 9vw, 75px);
+    font-weight: 500;
+
+    margin-bottom: 35px;
+}
+
+.love-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+button {
+    padding: 14px 28px;
+
+    background: transparent;
+
+    color: #eadadd;
+
+    border: 1px solid #8d4052;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #6e2638;
+    border-color: #b84b66;
+
+    box-shadow:
+        0 0 25px rgba(170, 45, 75, 0.35);
+}
+
+
+/* WEBSITE */
 
 .website {
     width: 100vw;
@@ -147,116 +227,4 @@ h1 span,
     color: #a83250;
 }
 
-h2 {
-    font-size: clamp(35px, 7vw, 60px);
-    margin-bottom: 30px;
-}
-
-.message {
-    max-width: 520px;
-
-    margin: 0 auto 35px;
-
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 23px;
-    line-height: 1.7;
-
-    color: #dfcdd0;
-}
-
-
-/* BUTTONS */
-
-button {
-    padding: 13px 30px;
-
-    background: transparent;
-
-    color: #eadadd;
-
-    border: 1px solid #8d4052;
-
-    font-family: 'Montserrat', sans-serif;
-
-    font-size: 11px;
-
-    letter-spacing: 3px;
-
-    cursor: pointer;
-
-    transition: all 0.3s ease;
-}
-
-button:hover {
-    background: #6e2638;
-
-    border-color: #b84b66;
-
-    box-shadow:
-        0 0 25px rgba(170, 45, 75, 0.35);
-}
-
-.buttons {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    gap: 18px;
-
-    min-height: 55px;
-}
-
-#noButton {
-    position: relative;
-}
-
-
-/* FINAL HEART */
-
-.heart {
-    font-size: 45px;
-
-    margin: 20px 0;
-
-    animation: heartbeat 1.8s infinite;
-}
-
-.date {
-    color: #9b717a;
-
-    font-size: 11px;
-
-    letter-spacing: 4px;
-}
-
-@keyframes heartbeat {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.15);
-    }
-}
-
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-    .card {
-        padding: 40px 25px;
-    }
-
-    .message {
-        font-size: 21px;
-    }
-
-    .buttons {
-        flex-direction: column;
-    }
-}
+h
