@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Eki ❤️ Simu</title>
 
     <link rel="stylesheet" href="style.css">
@@ -12,11 +11,138 @@
 
 <body>
 
-    <!-- CURTAINS -->
-    <div id="curtain">
-        <div class="curtain-left"></div>
-        <div class="curtain-right"></div>
+    <!-- OPENING QUESTION -->
+    <div id="questionScreen">
+
+        <div class="question-card">
+
+            <p class="small-text">BEFORE WE BEGIN...</p>
+
+            <h1>Who loves more?</h1>
+
+            <div class="love-buttons">
+
+                <button onclick="openCurtain()">
+                    Eki ❤️
+                </button>
+
+                <button id="simuButton" onclick="runAway()">
+                    Simu ❤️
+                </button>
+
+            </div>
+
+        </div>
+
     </div>
 
 
-    <!-- WEBSITE
+    <!-- CURTAINS -->
+    <div id="curtain">
+
+        <div class="curtain-left"></div>
+        <div class="curtain-right"></div>
+
+    </div>
+
+
+    <!-- WEBSITE -->
+    <main class="website">
+
+        <!-- PAGE 1 -->
+        <section class="page active" id="page1">
+
+            <div class="card">
+
+                <p class="small-text">
+                    17 • 12 • 2025
+                </p>
+
+                <h1>
+                    Eki <span>♥</span> Simu
+                </h1>
+
+                <p class="message">
+                    Your opening message will go here...
+                </p>
+
+                <button onclick="nextPage()">
+                    NEXT ♥
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- PAGE 2 -->
+        <section class="page" id="page2">
+
+            <div class="card">
+
+                <p class="small-text">
+                    CHAPTER II
+                </p>
+
+                <h2>
+                    Something I want you to know...
+                </h2>
+
+                <p class="message">
+                    Your second message will go here...
+                </p>
+
+                <div class="buttons">
+
+                    <button onclick="nextPage()">
+                        NEXT ♥
+                    </button>
+
+                    <button id="noButton" onclick="runAway()">
+                        NO NEXT
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PAGE 3 -->
+        <section class="page" id="page3">
+
+            <div class="card">
+
+                <p class="small-text">
+                    FOR YOU
+                </p>
+
+                <h2>
+                    And finally...
+                </h2>
+
+                <p class="message">
+                    Your conclusion will go here...
+                </p>
+
+                <div class="heart">
+                    ♥
+                </div>
+
+                <p class="date">
+                    17.12.2025 — Forever
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
