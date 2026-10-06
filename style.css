@@ -67,10 +67,10 @@ body {
 ========================= */
 
 #questionScreen {
-    position: fixed;
-    inset: 0;
+    position: fixed !important;
+    inset: 0 !important;
 
-    z-index: 200;
+    z-index: 9999 !important;
 
     display: flex;
     justify-content: center;
@@ -78,9 +78,15 @@ body {
 
     text-align: center;
 
-    pointer-events: auto;
+    pointer-events: auto !important;
+}
 
-    transition: opacity 0.6s ease;
+#questionScreen button {
+    position: relative;
+    z-index: 10000;
+
+    pointer-events: auto !important;
+    touch-action: manipulation;
 }
 
 #questionScreen.hidden {
