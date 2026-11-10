@@ -1,167 +1,217 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Eki ❤️ Simu</title>
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Simu ❤️</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <!-- QUESTION IN FRONT OF CURTAIN -->
+  <!-- 1. INVITATION -->
+  <section id="invitation" class="screen active">
+    <div class="invite-card">
+      <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
+      <h1>My dearest Simu</h1>
+      <p class="soft-text">I have a little surprise waiting for you...</p>
+      <button class="envelope" onclick="openInvitation()" aria-label="Open your invitation">
+        💌
+      </button>
+      <p class="hint">TAP THE ENVELOPE TO OPEN</p>
+    </div>
+  </section>
 
-    <div id="questionScreen">
+  <!-- 2. ANNIVERSARY MESSAGE -->
+  <section id="welcome" class="screen">
+    <div class="card">
+      <p class="eyebrow">A DAY FOR US</p>
+      <h1>HAPPY 47TH WEEK ANNIVERSARY TO US ❤️</h1>
+      <p class="message">
+        Now answer all the questions and after that complete the goal in the game and you'll have a surprise ready.
+      </p>
+      <button onclick="showScreen('q1')">LET'S BEGIN ❤️</button>
+    </div>
+  </section>
 
-        <div class="question-card">
+  <!-- 3. QUESTION ONE -->
+  <section id="q1" class="screen">
+    <div class="card">
+      <p class="eyebrow">QUESTION 01 / 04</p>
+      <h1>What is more tastier?</h1>
+      <div class="answer-buttons">
+        <button id="karelaBtn" class="answer" onclick="karelaChosen()">Karela</button>
+        <button class="answer" onclick="ekkiTyped()">Ekki</button>
+      </div>
+      <div id="ekkiInputArea" class="hidden input-area">
+        <p>Hmm. Type the correct answer, jaanu. 😭</p>
+        <input id="ekkiInput" type="text" placeholder="Type your answer...">
+        <button onclick="checkEkki()">SUBMIT ❤️</button>
+        <p id="inputMessage" class="hint"></p>
+      </div>
+    </div>
+  </section>
 
-            <p class="small-text">
-                BEFORE WE BEGIN...
-            </p>
+  <!-- 4. QUESTION TWO -->
+  <section id="q2" class="screen">
+    <div class="card">
+      <p class="eyebrow">QUESTION 02 / 04</p>
+      <h1>Who loves more?</h1>
+      <div class="answer-buttons vertical">
+        <button id="ekkiLoveBtn" class="answer" onclick="chooseEkki()">Ekki ❤️</button>
+        <button id="simuLoveBtn" class="answer" onclick="chooseSimu()">Simu ❤️</button>
+      </div>
+      <p id="loveHint" class="hint">Choose wisely, madam. 😭</p>
+    </div>
+  </section>
 
-            <h1>
-                Who loves more?
-            </h1>
+  <!-- 5. QUESTION THREE -->
+  <section id="q3" class="screen">
+    <div class="card">
+      <p class="eyebrow">QUESTION 03 / 04</p>
+      <h1>What's your favourite cardio?</h1>
+      <div class="answer-buttons">
+        <button class="answer" onclick="showScreen('q4')">On bed 😭</button>
+        <button id="runningBtn" class="answer" onclick="runningChosen()">Running 🏃‍♀️</button>
+      </div>
+    </div>
+  </section>
 
-            <div class="love-buttons">
+  <!-- 6. QUESTION FOUR -->
+  <section id="q4" class="screen">
+    <div class="card">
+      <p class="eyebrow">QUESTION 04 / 04</p>
+      <h1>Who's likely to achieve greatness in life, even after having a hard life?</h1>
+      <div class="answer-buttons vertical">
+        <button id="ekkiGreatBtn" class="answer" onclick="ekkiGreatness()">Ekki</button>
+        <button class="answer" onclick="showScreen('simuMessage')">Simu ❤️</button>
+      </div>
+    </div>
+  </section>
 
-                <button onclick="openCurtain()">
-                    Eki ❤️
-                </button>
+  <!-- 7. SIMU APPRECIATION -->
+  <section id="simuMessage" class="screen">
+    <div class="card scroll-card">
+      <p class="eyebrow">THIS ONE IS FOR YOU</p>
+      <h1>SIMU DESERVES THE WORLD ❤️</h1>
+      <p class="message">
+        Simu deserves all the success that is there for her in life.
 
-                <button id="simuButton" onclick="runAway()">
-                    Simu ❤️
-                </button>
+        Yes, Ekki had a hard life, and Ekki got through the hard phase. And Simu got through the hard phase too.
 
-            </div>
+        But Simu had each and every reason to give up, but she didn't. She didn't even flinch when her obstacles came.
 
+        Then she won the game. She won the game.
+
+        Now she has to win her life with AK. With AK will... now you, my love.
+
+        But now, the last thing that's going to happen is that you play the game, and then you will get the reward.
+
+        LET'S GOOOO! ❤️
+      </p>
+      <button onclick="startGame()">LET'S PLAY THE GAME ❤️</button>
+    </div>
+  </section>
+
+  <!-- 8. HEART COLLECTOR GAME -->
+  <section id="game" class="screen">
+    <div class="card game-card">
+      <p class="eyebrow">OPERATION: UNLOCK THE SURPRISE</p>
+      <h1>Heart Collector ❤️</h1>
+      <p class="soft-text">Collect 10 hearts. Avoid the dark obstacles!</p>
+
+      <div class="score-line">
+        <span>HEARTS COLLECTED</span>
+        <strong><span id="score">0</span> / 10</strong>
+      </div>
+      <div class="progress-track">
+        <div id="progress" class="progress-fill"></div>
+      </div>
+
+      <div id="gameBoard" class="game-board">
+        <div id="player" class="player">💗</div>
+        <div id="collectible" class="collectible">❤️</div>
+        <div id="hazard1" class="hazard">✖</div>
+        <div id="hazard2" class="hazard">✖</div>
+        <div id="hazard3" class="hazard">✖</div>
+      </div>
+
+      <p id="gameMessage" class="hint">Use the arrows to move your heart.</p>
+
+      <div class="game-controls">
+        <button onclick="movePlayer(0,-1)">↑</button>
+        <div>
+          <button onclick="movePlayer(-1,0)">←</button>
+          <button onclick="movePlayer(0,1)">↓</button>
+          <button onclick="movePlayer(1,0)">→</button>
         </div>
-
+      </div>
+      <p class="hint">You can also use your keyboard arrow keys.</p>
     </div>
+  </section>
 
-
-    <!-- CURTAINS -->
-
-    <div id="curtain">
-
-        <div class="curtain-left"></div>
-        <div class="curtain-right"></div>
-
+  <!-- 9. SURPRISE REWARD -->
+  <section id="reward" class="screen">
+    <div class="card">
+      <p class="eyebrow">MISSION COMPLETED</p>
+      <h1>YOU DID IT, SIMUUU! ❤️</h1>
+      <p class="message">You collected all the hearts. And now, your surprise is unlocked...</p>
+      <div class="surprise-frame">
+        <img id="surprisePhoto" src="surprise.jpg" alt="A special surprise for Simu">
+      </div>
+      <p class="soft-text">Made with love, just for you. ❤️</p>
+      <button onclick="showScreen('page1')">ONE LAST THING...</button>
     </div>
+  </section>
 
+  <!-- 10. ORIGINAL PAGE ONE -->
+  <section id="page1" class="screen">
+    <div class="card scroll-card">
+      <p class="date">17 • 12 • 2025</p>
+      <h1>Eki ♥ Simu</h1>
+      <p class="message">
+DANGGGGGG KITTTTTIII HOTTTTTTTTTT MA'AMMMM HAIII YEHHHHHHHHHH ,,,,,, OH MAI TO BHUL GAYA AP TO MERII BIWI HO AND MAI APKO INTRODUCE KARNE AYYA THA SORRY BTW MY NAME IS EKASH ,,,,,,,, TO LETS MOVE TO THE MAIN TOPIC SWEETY ,,,,,, TO NOW YOU'LL MOVE TO THE NEXT PAGE WHICH IS MY HEART AND IT'S FEELING FOR U ,,,, IM SORRY TO DISTURB YOUR JOURNEY BUT A GENUINE QUESTION WHY AND HOW  ARE YOU SO HOT
+      </p>
+      <button onclick="showScreen('page2')">NEXT ❤️</button>
+    </div>
+  </section>
 
-    <!-- WEBSITE -->
-
-    <main class="website">
-
-
-        <!-- PAGE 1 -->
-
-        <section class="page active" id="page1">
-
-            <div class="card">
-
-                <p class="small-text">
-                    17 • 12 • 2025
-                </p>
-
-                <h1>
-                    Eki <span>♥</span> Simu
-                </h1>
-
-                <p class="message">
-
-                    DANGGGGGG KITTTTTIII HOTTTTTTTTTT MA'AMMMM HAIII YEHHHHHHHHHH ,,,,,, OH MAI TO BHUL GAYA AP TO MERII BIWI HO AND MAI APKO INTRODUCE KARNE AYYA THA SORRY BTW MY NAME IS EKASH ,,,,,,,, TO LETS MOVE TO THE MAIN TOPIC SWEETY ,,,,,, TO NOW YOU'LL MOVE TO THE NEXT PAGE WHICH IS MY HEART AND IT'S FEELING FOR U ,,,, IM SORRY TO DISTURB YOUR JOURNEY BUT A GENUINE QUESTION WHY AND HOW  ARE YOU SO HOT
-
-                </p>
-
-                <button onclick="nextPage()">
-                    NEXT ❤️
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- PAGE 2 -->
-
-        <section class="page" id="page2">
-
-            <div class="card">
-
-                <p class="small-text">
-                    MY HEART ❤️
-                </p>
-
-                <p class="message">
-
-Ah s yaaaa meraaaa bachaaaa meraaaaa betuuuu meraaaaa baby meriii jaaaanu meraaaa kcuhuu puchuuu ap ,,,, apko ittti late kaise ho gayiii ig ekash ne rok liya hogga apko pagal hai vo srs simuuu yeh( ekash ) and simran pagal hai srs ek dusre ke liye ,,,, chaliye now I'll tell you what i want to say you merii jaaaanu 
+  <!-- 11. ORIGINAL HEART MESSAGE -->
+  <section id="page2" class="screen">
+    <div class="card scroll-card">
+      <p class="eyebrow">MY HEART ❤️</p>
+      <h1>For my jaanu</h1>
+      <p class="message">
+Ah s yaaaa meraaaa bachaaaa meraaaaa betuuuu meraaaaa baby meriii jaaaanu meraaaa kcuhuh puchuuu ap ,,,, apko ittti late kaise ho gayiii ig ekash ne rok liya hogga apko pagal hai vo srs simuuu yeh( ekash ) and simran pagal hai srs ek dusre ke liye ,,,, chaliye now I'll tell you what i want to say you merii jaaaanu 
 
 Merii ladddo merii jaaanu meraaa bachaaa meraaa betuuu I'm alwyss hereee for you merii cutieee pieee merii jaaaanu merii jaaaaanu HAPPYYYY 42 WEEKKLLLYYYY ANNIVERSARY MRRII JAAANU MEERAAA BETUU MRRII KIDDDDO 
 
-~ Ik merii jaaaanu times have been hard for you merii jaaanu meraaa bachaaa and ik meri jaaanu there are many things like talking to me alll the time , sending each other gifts ,,, we both want to do a lot of things but we aren't able to do it because of ataris of mine sachii ,,,,, simu jaaanu i promiseee merii jaaaanu meraaa bachaaa we'll have each other in ours and we'll alwyss and always will be tgt for ever and ever 
+~ Ik merii jaaaanu times have been hard for you merii jaaanu meraaa bachaaa and ik meri jaaaanu there are many things like talking to me alll the time , sending each other gifts ,,, we both want to do a lot of things but we aren't able to do it because of ataris of mine sachii ,,,,, simu jaaanu i promiseee merii jaaaanu meraaa bachaaa we'll have each other in ours and we'll alwyss and always will be tgt for ever and ever 
 
-~ Merii jaaanu meraaa bachaaa meraaa betuuu ,,,,  I'm alwyss proud of you merii jaaanu ,,,, sachi simu ap apni classes time sir karti hai , apko Jo karna chaiye merii betuu saab ap time pe karti hai betuu even tho food ko related choas hai ,, ya apke roomate and floor mates ke karan bhi pagal panti jo ho rahi hai ,,,,,, but ik merii jaaanu meraaa bachaaa saab acha hogga meraaa bacha mraaa betuu merii jaaaanu saab acha hogga mesaa betuu ,,,,,, maiii apke hansha apke sath rahunga meraaa betuu with all of my kidddos goal and fir merii jaaanu ap dill seeeee joo karna hogga jo lenaa hogga mereee bacheee kooo saab leggiii merii jaaaanu and uska man haii naa saab ek sath kharidengee merii jaaaanu 
+~ Merii jaaanu meraaa bachaaa meraaa betuuu ,,,,  I'm alwyss proud of you merii jaaanu ,,,, sachi simu ap apni classes time sir karti hai , apko Jo karna chaiye merii betuu saab ap time pe karti hai betuu even tho food ko related choas hai ,, ya apke roomate and floor mates ke karan bhi pagal panti jo ho rahi hai ,,,,,, but ik merii jaaanu meraaa bachaaa saab acha hogga meraaa bacha mraaa betuu merii jaaaanu saab acha hogga mesaa betuu ,,,,,, maiii apke hansha apke sath rahunga meraaa betuu with all of my kidddos goal and fir merii jaaaanu ap dill seeeee joo karna hogga jo lenaa hogga mereee bacheee kooo saab leggiii merii jaaaanu and uska man haii naa saab ek sath kharidengee merii jaaaanu 
 
 JUST AS A LAST QUESTION WILL YOU BE MY LAST 7 MINUTES OF MY TIME, WILL YOU BE MY LIFELINE , MY HEARTBEAT, WILL YOU BE MY WIFE MERII JAAAANU ?
+      </p>
+      <div class="button-row">
+        <button onclick="showScreen('page3')">NEXT ❤️</button>
+        <button class="secondary" onclick="runAwayNo()">NO NEXT</button>
+      </div>
+    </div>
+  </section>
 
-                </p>
+  <!-- 12. FINAL HEART PAGE -->
+  <section id="page3" class="screen">
+    <div class="card">
+      <p class="eyebrow">JUST YOU AND ME</p>
+      <p class="message">
+OHHHHH AGAYEEE APPPO EKIII NEE PAKAA DIYA HOGGA NAIIII ,,,,, CHALIYE NOW SAY I LOVEEEEE YOUYY TO MEEE EKIII KO NAHI BATAUNGA MAII ,,,,,,,,,, LOVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEESEEEEEEE YOUUUUUUUUUUUU MOREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE MERIIIIII JAAAAAANU AND IM ALWYS HEREEEE FOR YOUUUUU MRRIII KIDDDDDOOO
+      </p>
+      <div class="pumping-heart">❤️</div>
+      <p class="date">17.12.2025 — Forever</p>
+    </div>
+  </section>
 
-                <div class="buttons">
-
-                    <button onclick="nextPage()">
-                        NEXT ❤️
-                    </button>
-
-                    <button id="noButton" onclick="runAway()">
-                        NO NEXT
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- PAGE 3 -->
-
-        <section class="page" id="page3">
-
-            <div class="card">
-
-                <p class="small-text">
-                    ❤️
-                </p>
-
-                <p class="message">
-
-OHHHHH AGAYEEE APPPO EKIII NEE PAKAA DIYA HOGGA NAIIII ,,,,, CHALIYE NOW SAY I LOVEEEEE YOUYY TO MEEE EKIII KO NAHI BATAUNGA MAII ,,,,,,,,,, LOVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEESEEEEEEE YOUUUUUUUUUUUU MOREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE MERIIIIII JAAAAAANU AND IM ALWYS HEREEEE FOR YOUUUUU MRRIII KIDDDDDOOO
-
-                </p>
-
-                <div class="heart">
-                    ❤️
-                </div>
-
-                <p class="date">
-                    17.12.2025 — Forever
-                </p>
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-    <script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
-
 </html>
