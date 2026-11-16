@@ -8,7 +8,6 @@
 :root {
   --pink: #ffb6ce;
   --gold: #e9c77d;
-  --burgundy: #762644;
   --dark: #100810;
   --soft: #e8cbd6;
 }
@@ -29,8 +28,7 @@ body {
   justify-content: center;
   padding: 18px;
   overflow-y: auto;
-  background:
-    radial-gradient(ellipse at 50% 45%, #492034 0%, #21101d 48%, #100810 100%);
+  background: radial-gradient(ellipse at 50% 45%, #492034 0%, #21101d 48%, #100810 100%);
 }
 
 .screen.active {
@@ -52,9 +50,8 @@ body {
   text-align: center;
   border: 1px solid rgba(255,182,206,.24);
   border-radius: 24px;
-  background: rgba(13,7,14,.86);
-  box-shadow: 0 20px 80px rgba(0,0,0,.55),
-              0 0 45px rgba(170,50,95,.12);
+  background: rgba(13,7,14,.88);
+  box-shadow: 0 20px 80px rgba(0,0,0,.55), 0 0 45px rgba(170,50,95,.12);
   backdrop-filter: blur(14px);
 }
 
@@ -74,7 +71,7 @@ h1 {
 }
 
 h2 {
-  margin: 12px 0;
+  margin: 18px 0;
   font-family: 'Cormorant Garamond', serif;
   font-size: 32px;
   font-weight: 500;
@@ -121,15 +118,19 @@ button:active {
   transform: scale(.96);
 }
 
-.envelope {
+.hidden {
+  display: none !important;
+}
+
+.envelope, .treasure {
   display: block;
   margin: 25px auto;
-  width: 125px;
-  height: 110px;
+  width: 130px;
+  height: 115px;
   padding: 0;
   border: none;
   background: transparent;
-  font-size: 75px;
+  font-size: 78px;
   filter: drop-shadow(0 0 20px rgba(255,130,175,.4));
   animation: floating 2.5s ease-in-out infinite;
 }
@@ -138,8 +139,6 @@ button:active {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
 }
-
-/* LIVE COUNTER */
 
 .counter {
   display: flex;
@@ -173,8 +172,6 @@ button:active {
   letter-spacing: 2px;
 }
 
-/* ELEVEN STARS */
-
 .universe-panel {
   max-width: 720px;
 }
@@ -198,13 +195,6 @@ button:active {
   color: #8d7180;
   font-size: 32px;
   box-shadow: 0 0 15px rgba(233,199,125,.06);
-  transition: .35s ease;
-}
-
-.star:hover {
-  color: var(--gold);
-  box-shadow: 0 0 25px rgba(233,199,125,.4);
-  transform: scale(1.15);
 }
 
 .star.unlocked {
@@ -217,7 +207,7 @@ button:active {
 .star-message {
   margin: 20px auto;
   padding: 25px 20px;
-  max-width: 480px;
+  max-width: 500px;
   border: 1px solid rgba(233,199,125,.3);
   border-radius: 18px;
   background: rgba(233,199,125,.05);
@@ -228,13 +218,8 @@ button:active {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
   line-height: 1.7;
+  white-space: pre-line;
 }
-
-.hidden {
-  display: none !important;
-}
-
-/* PHOTO GALLERY */
 
 .gallery-panel {
   max-width: 760px;
@@ -252,11 +237,6 @@ button:active {
   border: 1px solid rgba(255,182,206,.3);
   border-radius: 13px;
   background: rgba(255,255,255,.04);
-  transform: rotate(-1deg);
-}
-
-.photo-grid figure:nth-child(2) {
-  transform: rotate(1deg);
 }
 
 .photo-grid img {
@@ -280,35 +260,59 @@ button:active {
   font-size: 18px;
 }
 
-/* FUTURE BOX */
-
-.treasure {
-  display: block;
-  width: 140px;
-  height: 130px;
-  margin: 25px auto;
-  padding: 0;
-  border: none;
-  background: transparent;
-  font-size: 85px;
-  filter: drop-shadow(0 0 20px rgba(233,199,125,.4));
-  animation: floating 2.5s ease-in-out infinite;
+.proposal-panel {
+  max-width: 720px;
 }
 
-/* FINAL PAGE */
-
-.final-panel {
-  max-width: 680px;
-}
-
-.final-letter {
+.proposal-letter {
+  max-width: 570px;
   margin: 25px auto;
-  max-width: 520px;
   color: var(--soft);
+  text-align: left;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 23px;
-  line-height: 1.8;
-  white-space: pre-line;
+  font-size: 22px;
+  line-height: 1.75;
+}
+
+.proposal-letter p {
+  margin: 0 0 19px;
+}
+
+.proposal-question {
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+
+.choice-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.yes-button {
+  background: linear-gradient(135deg, #b64d70, #762644);
+  min-width: 130px;
+}
+
+.no-button, .quiet-button {
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.25);
+}
+
+.secondary-button {
+  background: linear-gradient(135deg, #a13c62, #65203e);
+}
+
+.yes-photo {
+  display: block;
+  width: min(100%, 360px);
+  max-height: 420px;
+  object-fit: cover;
+  margin: 25px auto;
+  border: 2px solid rgba(233,199,125,.5);
+  border-radius: 16px;
+  box-shadow: 0 0 35px rgba(255,100,150,.2);
 }
 
 .pumping-heart {
@@ -372,7 +376,8 @@ button:active {
     font-size: 15px;
   }
 
-  .final-letter {
-    font-size: 21px;
+  .proposal-letter {
+    font-size: 20px;
   }
 }
+
