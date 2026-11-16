@@ -10,9 +10,8 @@
 </head>
 <body>
 
-  <!-- 01: INVITATION -->
   <section id="invitation" class="screen active">
-    <div class="panel invitation-panel">
+    <div class="panel">
       <p class="eyebrow">A PRIVATE INVITATION</p>
       <div class="envelope" onclick="openInvitation()">💌</div>
       <h1>For my favourite human</h1>
@@ -22,14 +21,11 @@
     </div>
   </section>
 
-  <!-- 02: WELCOME -->
   <section id="welcome" class="screen">
     <div class="panel">
       <p class="eyebrow">17 NOVEMBER 2026</p>
       <h1>HAPPY 11 MONTHS TO US ❤️</h1>
-      <p class="subtitle">
-        Eleven months. Countless feelings. One person I would choose again.
-      </p>
+      <p class="subtitle">Eleven months. Countless feelings. One person I would choose again.</p>
       <div class="counter">
         <div><strong id="days">0</strong><span>DAYS</span></div>
         <div><strong id="hours">0</strong><span>HOURS</span></div>
@@ -41,7 +37,6 @@
     </div>
   </section>
 
-  <!-- 03: ELEVEN STARS -->
   <section id="universe" class="screen">
     <div class="panel universe-panel">
       <p class="eyebrow">OUR LITTLE UNIVERSE</p>
@@ -49,24 +44,24 @@
       <p class="subtitle">Tap every star to discover what it holds.</p>
 
       <div class="star-grid">
-        <button class="star" data-star="0" onclick="openStar(0)">✦</button>
-        <button class="star" data-star="1" onclick="openStar(1)">✦</button>
-        <button class="star" data-star="2" onclick="openStar(2)">✦</button>
-        <button class="star" data-star="3" onclick="openStar(3)">✦</button>
-        <button class="star" data-star="4" onclick="openStar(4)">✦</button>
-        <button class="star" data-star="5" onclick="openStar(5)">✦</button>
-        <button class="star" data-star="6" onclick="openStar(6)">✦</button>
-        <button class="star" data-star="7" onclick="openStar(7)">✦</button>
-        <button class="star" data-star="8" onclick="openStar(8)">✦</button>
-        <button class="star" data-star="9" onclick="openStar(9)">✦</button>
-        <button class="star" data-star="10" onclick="openStar(10)">✦</button>
+        <button class="star" onclick="openStar(0)">✦</button>
+        <button class="star" onclick="openStar(1)">✦</button>
+        <button class="star" onclick="openStar(2)">✦</button>
+        <button class="star" onclick="openStar(3)">✦</button>
+        <button class="star" onclick="openStar(4)">✦</button>
+        <button class="star" onclick="openStar(5)">✦</button>
+        <button class="star" onclick="openStar(6)">✦</button>
+        <button class="star" onclick="openStar(7)">✦</button>
+        <button class="star" onclick="openStar(8)">✦</button>
+        <button class="star" onclick="openStar(9)">✦</button>
+        <button class="star" onclick="openStar(10)">✦</button>
       </div>
 
       <p id="starProgress" class="tiny">0 / 11 STARS DISCOVERED</p>
 
       <div id="starMessage" class="star-message hidden">
         <p id="starMonth" class="eyebrow"></p>
-        <h2 id="starTitle">A little memory</h2>
+        <h2 id="starTitle"></h2>
         <p id="starText"></p>
         <button onclick="closeStar()">BACK TO THE STARS</button>
       </div>
@@ -77,13 +72,11 @@
     </div>
   </section>
 
-  <!-- 04: PHOTO GALLERY -->
   <section id="gallery" class="screen">
     <div class="panel gallery-panel">
       <p class="eyebrow">A FEW PIECES OF US</p>
       <h1>Our little museum ❤️</h1>
       <p class="subtitle">Some moments deserve to stay forever.</p>
-
       <div class="photo-grid">
         <figure>
           <img src="couple1.jpg" alt="Our memory together">
@@ -94,40 +87,127 @@
           <figcaption>Just us, being us</figcaption>
         </figure>
       </div>
-
       <button onclick="showScreen('future')">A LITTLE SOMETHING MORE ✨</button>
     </div>
   </section>
 
-  <!-- 05: FUTURE BOX -->
   <section id="future" class="screen">
     <div class="panel">
       <p class="eyebrow">A MESSAGE FROM TODAY</p>
       <h1>For our first anniversary...</h1>
-      <p class="subtitle">
-        There's a little promise waiting inside this box.
-      </p>
+      <p class="subtitle">There's a little promise waiting inside this box.</p>
       <button class="treasure" onclick="openFuture()">🎁</button>
       <p id="futureMessage" class="subtitle hidden">
         One year. One promise. And a thousand more memories waiting for us.
       </p>
-      <button id="finalButton" class="hidden" onclick="showScreen('final')">
-        OPEN MY HEART ❤️
+      <button id="endButton" class="hidden" onclick="showScreen('ending')">
+        CONTINUE ❤️
       </button>
     </div>
   </section>
 
-  <!-- 06: FINAL DESTINATION -->
-  <section id="final" class="screen">
+  <section id="ending" class="screen">
+    <div class="panel">
+      <p class="eyebrow">OUR LITTLE JOURNEY</p>
+      <h1>THE END.</h1>
+      <p class="subtitle">Or maybe... not quite. ❤️</p>
+      <button onclick="showScreen('surprise')">EXIT</button>
+    </div>
+  </section>
+
+  <section id="surprise" class="screen">
+    <div class="panel">
+      <p class="eyebrow">WAIT A SECOND...</p>
+      <h1>WAIT, I HAVE A SURPRISE FOR YOU ❤️</h1>
+      <p class="subtitle">There's something I've wanted to ask you, mere bache.</p>
+      <button onclick="showScreen('proposal')">OPEN MY SURPRISE 💌</button>
+    </div>
+  </section>
+
+  <section id="proposal" class="screen">
+    <div class="panel proposal-panel">
+      <p class="eyebrow">FROM EKASH, WITH ALL HIS HEART</p>
+      <h1>Simu, mere bache...</h1>
+      <div class="proposal-letter">
+        <p>Mere bache meriii jaaan ❤️</p>
+
+        <p>Ik life with me is never easy for you. It's a bit hard for now, but yk what? Mai na kismat badal dunga hum dono ki. We'll live tgt, eksath, forever and ever ke liye.</p>
+
+        <p>We'll live tgt, we'll give your parents their dream life. Mere bache merii jaan meraa betu. ❤️</p>
+
+        <p>Simu, we have grown tgt a lot. We used to fight a lot, mere bache — abhi bhi karte hain — but we make up ache se, by assuring each other.</p>
+
+        <p>Thank you for always saying "loveee you too" and "kissi" har bar. Thank you for updating me on WhatsApp. Thank you for those "I'm here" messages. They mean a lot to me.</p>
+
+        <p>Now what I wanna ask you, Simu mere bache...</p>
+
+        <p>Do you want to marry me?</p>
+
+        <p>Will you give me the beautiful opportunity to be your husband and take care of my daughter?</p>
+
+        <p>Simu, will you play ghar ghar with me forever and ever? ❤️</p>
+      </div>
+
+      <h2 class="proposal-question">WILL YOU MARRY ME?</h2>
+      <div class="choice-row">
+        <button class="yes-button" onclick="showScreen('yes')">YES ❤️</button>
+        <button class="no-button" onclick="showScreen('no1')">NO</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="yes" class="screen">
     <div class="panel final-panel">
-      <p class="eyebrow">JUST YOU AND ME</p>
-      <h1>Happy 11 months, my love.</h1>
-      <p class="final-letter" id="finalLetter">
-        [YOUR PERSONAL 11-MONTH MESSAGE GOES HERE]
-      </p>
+      <p class="eyebrow">SHE SAID YES ❤️</p>
+      <h1>YOU JUST MADE ME THE HAPPIEST MAN.</h1>
+      <p class="subtitle">Mere bache, my future wife. I love you endlessly.</p>
+      <img class="yes-photo" src="proposal-yes.jpg" alt="Our special picture"
+           onerror="this.style.display='none'; document.getElementById('photoNote').classList.remove('hidden');">
+      <p id="photoNote" class="tiny hidden">OUR PHOTO WILL LIVE HERE ❤️</p>
       <div class="pumping-heart">❤️</div>
       <p class="date">17.12.2025 — FOREVER</p>
       <p class="tiny">ALWAYS YOURS, EKASH.</p>
+    </div>
+  </section>
+
+  <section id="no1" class="screen">
+    <div class="panel">
+      <p class="eyebrow">WAIT WHAT 😭</p>
+      <h1>Simuuu, are you sure?</h1>
+      <p class="subtitle">Mere bache, I practised this proposal in my head so many times. 😂</p>
+      <button onclick="showScreen('no2')">I'M STILL SAYING NO</button>
+      <button class="secondary-button" onclick="showScreen('yes')">OKAY, YES ❤️</button>
+      <button class="quiet-button" onclick="showScreen('noFinal')">I REALLY MEAN NO</button>
+    </div>
+  </section>
+
+  <section id="no2" class="screen">
+    <div class="panel">
+      <p class="eyebrow">MY HEART JUST BUFFERED</p>
+      <h1>Not even a little ghar ghar? 🥺</h1>
+      <p class="subtitle">I'll still respect your answer, but my dramatic heart needs one second. 😭</p>
+      <button onclick="showScreen('no3')">STILL NO</button>
+      <button class="secondary-button" onclick="showScreen('yes')">CHANGE TO YES ❤️</button>
+      <button class="quiet-button" onclick="showScreen('noFinal')">I REALLY MEAN NO</button>
+    </div>
+  </section>
+
+  <section id="no3" class="screen">
+    <div class="panel">
+      <p class="eyebrow">FINAL DRAMATIC ATTEMPT</p>
+      <h1>I'll keep the ring safe. ❤️</h1>
+      <p class="subtitle">Whatever your answer, you deserve to be heard and respected, Simu.</p>
+      <button class="secondary-button" onclick="showScreen('yes')">I WANT TO SAY YES ❤️</button>
+      <button class="quiet-button" onclick="showScreen('noFinal')">MY ANSWER IS NO</button>
+    </div>
+  </section>
+
+  <section id="noFinal" class="screen">
+    <div class="panel">
+      <p class="eyebrow">ALWAYS WITH RESPECT</p>
+      <h1>Thank you for being honest, Simu.</h1>
+      <p class="subtitle">You never have to say yes unless your heart truly wants to. You matter to me, always. ❤️</p>
+      <button onclick="showScreen('invitation')">BACK TO THE BEGINNING</button>
     </div>
   </section>
 
