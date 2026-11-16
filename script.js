@@ -1,79 +1,71 @@
 
-/* =================================
-   PROJECT 11 — FOR SIMU ❤️
-================================= */
+/* PROJECT 11 — FOR SIMU ❤️ */
 
 let discoveredStars = new Set();
 
-/* 11 STAR MESSAGES
-   We can personalise these together later.
-*/
-
 const starMessages = [
   {
-    title: "The beginning",
-    month: "STAR 01 — DECEMBER",
-    message: "Every beautiful journey has a beginning. And somehow, mine became more beautiful when you became part of it."
+    title: "The butterfly effect 🦋",
+    month: "MONTH 1",
+    message: "Ahh, we had that butterfly effect. We used to be like aww and ap and koi ni. I used to make you jealous, which was so childish of me. We used to crave even talking to each other on call. Mere bache, merii jaan, mere bache. ❤️"
   },
   {
-    title: "A little reminder",
-    month: "STAR 02 — JANUARY",
-    message: "No matter how ordinary a day feels, having you in my life gives it something special."
+    title: "Our first difficult phase",
+    month: "MONTH 2",
+    message: "Now this is where real tensions started to grow. We started having fights and we weren't able to communicate ache se. We had low phases during this time, but we held firmly onto each other, mere bache. ❤️"
   },
   {
-    title: "My favourite person",
-    month: "STAR 03 — FEBRUARY",
-    message: "Out of all the people in this world, you are still the person I want to tell everything to."
+    title: "Understanding each other",
+    month: "MONTH 3",
+    message: "This was the time we started understanding each other more and explaining things to each other ache se. We started calling on the phone mostly every day. We had our first kiss and our first cuddle in this month. ❤️"
   },
   {
-    title: "Through everything",
-    month: "STAR 04 — MARCH",
-    message: "We don't need every day to be perfect. I just want us to keep choosing each other through every kind of day."
+    title: "The one-hour call",
+    month: "MONTH 4",
+    message: "Mere bache, merii jaan, merii laddo. We had our first direct one-hour call. We used to laugh itta ki pet dard hone lagta tha merii laddo ka and meraa. Those laughs are so precious to me. ❤️"
   },
   {
-    title: "My safe place",
-    month: "STAR 05 — APRIL",
-    message: "I hope you always remember that you have someone cheering for you, believing in you and standing beside you."
+    title: "My hardworking girl",
+    month: "MONTH 5",
+    message: "This was the month my wife locked in for CUET. She started giving those 2–3 hour study sessions. She hated me because I was thodu saa harsh with her, but I was prouder of her than I could ever say. ❤️"
   },
   {
-    title: "A thousand smiles",
-    month: "STAR 06 — MAY",
-    message: "If I could save little moments forever, I would save every moment that made you smile."
+    title: "You gave it your all",
+    month: "MONTH 6",
+    message: "This was the month she gave her CUET papers. She did everything she could have done during those papers. And she will, and she has always, excelled in life. My daughter, my love of my life. ❤️"
   },
   {
-    title: "Still choosing you",
-    month: "STAR 07 — JUNE",
-    message: "Time can pass, days can change, but I want my choice to remain the same: you."
+    title: "Falling in love even more",
+    month: "MONTH 7",
+    message: "This was the month we had choti moti little fights, but we used to make up again. We started loving each other even more, and I fell in love with you more and more. ❤️"
   },
   {
-    title: "My favourite thought",
-    month: "STAR 08 — JULY",
-    message: "Somewhere in the middle of a busy day, I still find myself thinking about you."
+    title: "My honey bee got her college",
+    month: "MONTH 8",
+    message: "This was the month where my honey bee, my hardworking wife, got her college. I was so happy for her. And not only that, her kiddish self was so happy. She hugged me, she hugged Simran, and she was so happy. ❤️"
   },
   {
-    title: "Your biggest supporter",
-    month: "STAR 09 — AUGUST",
-    message: "I hope you achieve everything your heart dreams of. I will always be proud of you."
+    title: "The first time we got close",
+    month: "MONTH 9 — 4 SEPTEMBER",
+    message: "Let's gooo! This was the month we came soo closeeeee yyyyyyaaaaaayyyyy! You came for the first time close to me on 4 September. You were wearing skin-colour socks, blue lowers and your Wednesday shirt. And we touched for the first time at 22:36:35 because I helped you throw a paper in the dustbin. I'll remember that tiny moment forever. ❤️"
   },
   {
-    title: "Our little universe",
-    month: "STAR 10 — SEPTEMBER",
-    message: "This little universe is special because it has you in it. I wouldn't trade that for anything."
+    title: "OUR FIRST DATE!",
+    month: "MONTH 10 — 30 SEPTEMBER",
+    message: "Our firsttttt dateeeee! Yyyyyyaaaaaayyyyy! I'm so happy. We kissed, we hugged, and I was a bit emotional when I left you. I was crying. That day will always have a special place in my heart. ❤️"
   },
   {
-    title: "Eleven months",
-    month: "STAR 11 — NOVEMBER",
-    message: "Eleven months down, my love. And if I could start this journey all over again, I would still choose you."
+    title: "My brave, brave daughter",
+    month: "MONTH 11",
+    message: "MY BRAVE BRAVE DAUGHTER, JISKI JITNI TARIF KARUN UTTA KAM. She fought her way in her room with that psychopath. She fought the world. She survived. And when she was done, she shanti se played a smart move to her temporary home, because permanent is... ❤️\n\nMere bache, I am so proud of your courage. You have no idea how much."
   }
 ];
 
 
-/* CHANGE BETWEEN SCREENS */
+/* SCREEN NAVIGATION */
 
 function showScreen(screenId) {
-  const screens = document.querySelectorAll(".screen");
-
-  screens.forEach(screen => {
+  document.querySelectorAll(".screen").forEach(screen => {
     screen.classList.remove("active");
   });
 
@@ -83,82 +75,66 @@ function showScreen(screenId) {
     nextScreen.classList.add("active");
 
     const panel = nextScreen.querySelector(".panel");
-
-    if (panel) {
-      panel.scrollTop = 0;
-    }
+    if (panel) panel.scrollTop = 0;
   }
 }
 
 
-/* OPEN THE INVITATION */
+/* INVITATION */
 
 function openInvitation() {
   showScreen("welcome");
 }
 
 
-/* LIVE RELATIONSHIP COUNTER */
+/* RELATIONSHIP COUNTER */
 
 function updateCounter() {
   const startDate = new Date(2025, 11, 17, 0, 0, 0);
   const now = new Date();
 
-  let difference = now - startDate;
-
-  if (difference < 0) {
-    difference = 0;
-  }
-
+  let difference = Math.max(0, now - startDate);
   const totalSeconds = Math.floor(difference / 1000);
 
-  const days = Math.floor(totalSeconds / 86400);
-  const hours = Math.floor((totalSeconds % 86400) / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
+  document.getElementById("days").textContent =
+    Math.floor(totalSeconds / 86400);
 
-  document.getElementById("days").textContent = days;
-  document.getElementById("hours").textContent = hours;
-  document.getElementById("minutes").textContent = minutes;
-  document.getElementById("seconds").textContent = seconds;
+  document.getElementById("hours").textContent =
+    Math.floor((totalSeconds % 86400) / 3600);
+
+  document.getElementById("minutes").textContent =
+    Math.floor((totalSeconds % 3600) / 60);
+
+  document.getElementById("seconds").textContent =
+    totalSeconds % 60;
 }
 
 updateCounter();
 setInterval(updateCounter, 1000);
 
 
-/* OPEN A STAR */
+/* STARS */
 
 function openStar(index) {
-  const star = document.querySelector(
-    '.star[data-star="' + index + '"]'
-  );
-
-  const messageBox = document.getElementById("starMessage");
-  const month = document.getElementById("starMonth");
-  const title = document.getElementById("starTitle");
-  const text = document.getElementById("starText");
-
-  if (!star || !starMessages[index]) {
-    return;
-  }
-
+  const stars = document.querySelectorAll(".star");
   const memory = starMessages[index];
 
-  month.textContent = memory.month;
-  title.textContent = memory.title;
-  text.textContent = memory.message;
+  if (!memory) return;
 
-  messageBox.classList.remove("hidden");
+  document.getElementById("starMonth").textContent = memory.month;
+  document.getElementById("starTitle").textContent = memory.title;
+  document.getElementById("starText").textContent = memory.message;
+  document.getElementById("starMessage").classList.remove("hidden");
 
+  stars[index].classList.add("unlocked");
   discoveredStars.add(index);
-  star.classList.add("unlocked");
 
   updateStarProgress();
 }
 
-
-/* UPDATE STAR PROGRESS */
+function closeStar() {
+  document.getElementById("starMessage").classList.add("hidden");
+}
 
 function updateStarProgress() {
   const count = discoveredStars.size;
@@ -167,91 +143,69 @@ function updateStarProgress() {
     count + " / 11 STARS DISCOVERED";
 
   if (count === 11) {
-    document.getElementById("galleryButton")
-      .classList.remove("hidden");
-
+    document.getElementById("galleryButton").classList.remove("hidden");
     document.getElementById("starProgress").textContent =
       "11 / 11 STARS DISCOVERED — OUR UNIVERSE IS COMPLETE ✨";
   }
 }
 
 
-/* CLOSE STAR MESSAGE */
-
-function closeStar() {
-  document.getElementById("starMessage")
-    .classList.add("hidden");
-}
-
-
-/* OPEN THE FUTURE BOX */
+/* FUTURE BOX */
 
 function openFuture() {
-  document.getElementById("futureMessage")
-    .classList.remove("hidden");
-
-  document.getElementById("finalButton")
-    .classList.remove("hidden");
+  document.getElementById("futureMessage").classList.remove("hidden");
+  document.getElementById("endButton").classList.remove("hidden");
 }
 
 
-/* ENLARGE GALLERY PHOTOS WHEN TAPPED */
+/* GALLERY PHOTO VIEWER */
 
 function createPhotoViewer() {
-  const images = document.querySelectorAll(".photo-grid img");
-
-  images.forEach(img => {
+  document.querySelectorAll(".photo-grid img").forEach(img => {
     img.addEventListener("click", function () {
       if (!this.complete || this.naturalWidth === 0) {
-        alert("This photo hasn't loaded yet. Check its filename in GitHub.");
+        alert("This photo hasn't loaded. Please check its filename in GitHub.");
         return;
       }
 
       const viewer = document.createElement("div");
+      viewer.className = "photo-viewer";
 
-      viewer.style.position = "fixed";
-      viewer.style.inset = "0";
-      viewer.style.zIndex = "99999";
-      viewer.style.background = "rgba(0,0,0,.94)";
-      viewer.style.display = "flex";
-      viewer.style.alignItems = "center";
-      viewer.style.justifyContent = "center";
-      viewer.style.padding = "20px";
-      viewer.style.cursor = "zoom-out";
+      Object.assign(viewer.style, {
+        position: "fixed",
+        inset: "0",
+        zIndex: "99999",
+        background: "rgba(0,0,0,.94)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "20px",
+        cursor: "zoom-out"
+      });
 
       const enlarged = document.createElement("img");
-
       enlarged.src = this.src;
       enlarged.alt = this.alt;
-      enlarged.style.maxWidth = "95%";
-      enlarged.style.maxHeight = "90vh";
-      enlarged.style.objectFit = "contain";
-      enlarged.style.borderRadius = "12px";
-      enlarged.style.boxShadow = "0 0 40px rgba(255,100,150,.3)";
+
+      Object.assign(enlarged.style, {
+        maxWidth: "95%",
+        maxHeight: "90vh",
+        objectFit: "contain",
+        borderRadius: "12px"
+      });
 
       viewer.appendChild(enlarged);
       document.body.appendChild(viewer);
 
-      viewer.addEventListener("click", function () {
-        viewer.remove();
-      });
+      viewer.addEventListener("click", () => viewer.remove());
     });
   });
 }
 
 createPhotoViewer();
 
-
-/* CLOSE PHOTO VIEWER WITH ESCAPE */
-
-document.addEventListener("keydown", function (event) {
+document.addEventListener("keydown", event => {
   if (event.key === "Escape") {
-    const viewer = document.querySelector(
-      'body > div[style*="z-index: 99999"]'
-    );
-
-    if (viewer) {
-      viewer.remove();
-    }
+    document.querySelector(".photo-viewer")?.remove();
   }
 });
